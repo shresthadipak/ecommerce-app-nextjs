@@ -1,5 +1,6 @@
+import AddCategory from '@/components/AddCategory'
 import Navbar from '@/components/Navbar'
-import ProductList from '@/components/ProductList'
+import ProductList from '@/components/CategoryList'
 import Head from 'next/head'
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <ProductList />
+        <AddCategory />
       </main>
     </>
   )
