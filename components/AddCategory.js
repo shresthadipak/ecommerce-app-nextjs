@@ -33,12 +33,17 @@ const AddCategory = () => {
 
     const saveCategory = async(e) => {
         e.preventDefault()
+
+        const formData = new FormData();
+        formData.append("categoryTitle", category.categoryTitle)
+        formData.append("categoryDescription", category.categoryDescription)
+
         const response = await fetch(ADD_CATEGORY_BASE_URL, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(category)
+            // headers: {
+            //     "Content-Type": "application/form-data"
+            // },
+            body: formData
         })
         if(!response.ok){
             throw new Error("Something went wrong!!")
@@ -60,6 +65,7 @@ const AddCategory = () => {
 
   return (
     <>
+        <div> <h2 className=" text-center font-bold my-10">Category List</h2></div>
         <div className="px-6 mx-6 my-6">
             <button className="px-4 rounded bg-blue-800 text-white" onClick={openModel}>Add Category</button>
         </div>

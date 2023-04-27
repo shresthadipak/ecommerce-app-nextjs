@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
-        <AddCategory />
+        <h3 className=" text-center py-10 font-bold">Welcome to our Ecommerce Dashboard</h3>
       </main>
     </>
   )

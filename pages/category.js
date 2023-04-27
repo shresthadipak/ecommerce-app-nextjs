@@ -1,8 +1,8 @@
+import AddCategory from '@/components/AddCategory'
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
-import AddProduct from '@/components/AddProduct'
 
-const products = () => {
+const category = () => {
   return (
     <>
       <Head>
@@ -10,10 +10,10 @@ const products = () => {
       </Head>
       <main>
         <Navbar />
-        <AddProduct />
+        <AddCategory />
       </main>
     </>
   )
 }
 
-export default products
+export default category
