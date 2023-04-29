@@ -34,16 +34,12 @@ const AddCategory = () => {
     const saveCategory = async(e) => {
         e.preventDefault()
 
-        const formData = new FormData();
-        formData.append("categoryTitle", category.categoryTitle)
-        formData.append("categoryDescription", category.categoryDescription)
-
         const response = await fetch(ADD_CATEGORY_BASE_URL, {
             method: "POST",
-            // headers: {
-            //     "Content-Type": "application/form-data"
-            // },
-            body: formData
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(category)
         })
         if(!response.ok){
             throw new Error("Something went wrong!!")
