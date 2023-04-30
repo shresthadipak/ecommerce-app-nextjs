@@ -5,7 +5,8 @@ const Navbar = () => {
         <>
             <div className=" bg-gray-800">
                 <div className=" h-16 px-8 flex items-center">
-                    <p className=" text-white font-bold">Ecommerce Application - Dashboard</p>
+                    <p className=" text-white font-bold text-left">Ecommerce Application - Dashboard</p>
+                    <Link href="#" className=" text-white font-bold text-right">LogOut</Link>
                 </div>   
             </div>
             <div className=" bg-gray-50">
