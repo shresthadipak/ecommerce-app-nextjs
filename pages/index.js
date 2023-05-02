@@ -1,9 +1,8 @@
-import AddCategory from '@/components/AddCategory'
 import Navbar from '@/components/Navbar'
-import ProductList from '@/components/CategoryList'
 import Head from 'next/head'
+import withAuth from '@/utils/withAuth'
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -16,3 +15,5 @@ export default function Home() {
     </>
   )
 }
+
+export default withAuth(Home)

@@ -1,6 +1,7 @@
 import AddCategory from '@/components/AddCategory'
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
+import withAuth from '@/utils/withAuth'
 
 const category = () => {
   return (
@@ -16,4 +17,4 @@ const category = () => {
   )
 }
 
-export default category
+export default withAuth(category)

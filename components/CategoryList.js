@@ -7,12 +7,14 @@ const CategoryList = ({category}) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        const authToken = localStorage.getItem("token")
         const fetchData = async() => {
             setLoading(true)
             try {
                 const response = await fetch(CATEGORY_API_BASE_URL, {
                     method : "GET",
                     headers: {
+                        "Authorization" : `Bearer ${authToken}`,
                         "Content-Type": "application/json"
                     }
                 })
@@ -41,7 +43,7 @@ const CategoryList = ({category}) => {
                 {!loading && (
                     <tbody className=" bg-white">
                         {categories?.map((category) => (    
-                            <Category category={category} key={category.id}/>
+                            <Category category={category}/>
                         ))}
                     </tbody>
                 )}

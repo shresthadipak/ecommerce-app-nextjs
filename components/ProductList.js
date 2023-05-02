@@ -5,15 +5,18 @@ const ProductList = ({product}) => {
   const PRODUCT_API_BASE_URL = "http://localhost:8080/api/products/"
   const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
+  
 
 
   useEffect(() => {
+    const authToken = localStorage.getItem("token")
     const fetchData = async() => {
         setLoading(true)
         try {
             const response = await fetch(PRODUCT_API_BASE_URL, {
                 method : "GET",
                 headers: {
+                    "Authorization" : `Bearer ${authToken}`,
                     "Content-Type": "application/json"
                 }
             })

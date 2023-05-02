@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import AddProduct from '@/components/AddProduct'
+import withAuth from '@/utils/withAuth'
 
 const products = () => {
   return (
@@ -16,4 +17,4 @@ const products = () => {
   )
 }
 
-export default products
+export default withAuth(products)
