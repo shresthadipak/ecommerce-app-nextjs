@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import withAuth from '@/utils/withAuth'
 
 const ProductImage = ({ src, width }) => {
   const [imageSrc, setImageSrc] = useState('')
@@ -29,4 +30,4 @@ const ProductImage = ({ src, width }) => {
   )
 }
 
-export default ProductImage;
+export default withAuth(ProductImage);

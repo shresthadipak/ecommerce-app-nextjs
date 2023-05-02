@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import Product from "./Product"
+import { useRouter } from "next/router"
 
 const ProductList = ({product}) => {
   const PRODUCT_API_BASE_URL = "http://localhost:8080/api/products/"
   const [products, setProducts] = useState(null)
   const [loading, setLoading] = useState(true)
-  
-
+  const router = useRouter()
 
   useEffect(() => {
     const authToken = localStorage.getItem("token")
