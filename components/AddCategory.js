@@ -33,10 +33,12 @@ const AddCategory = () => {
 
     const saveCategory = async(e) => {
         e.preventDefault()
+        const authToken = localStorage.getItem("token")
 
         const response = await fetch(ADD_CATEGORY_BASE_URL, {
             method: "POST",
             headers: {
+                "Authorization": `Bearer ${authToken}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(category)

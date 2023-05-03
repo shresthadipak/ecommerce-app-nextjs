@@ -47,6 +47,7 @@ const AddProduct = () => {
 
     const saveProduct = async(e) => {
         e.preventDefault()
+        const authToken = localStorage.getItem("token")
 
         const formData = new FormData()
         formData.append("title", product.title)
@@ -58,6 +59,9 @@ const AddProduct = () => {
 
         const response = await fetch(ADD_PRODUCT_API_BASE_URL, {
             method: "POST",
+            headers:{
+                "Authorization": `Bearer ${authToken}`
+            },
             body: formData
         })
         if(!response.ok){
