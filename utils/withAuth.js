@@ -7,13 +7,20 @@ function withAuth(Component){
 
         useEffect(() => {
             const authToken = localStorage.getItem("token")
-            if(!authToken){
+            if(!authToken || !isValid(authToken)){
                 router.push("/login")
+                localStorage.removeItem("token")
             }
         }, [])
 
         return <Component {...props} />
     }
+}
+
+function isValid(token){
+    // Parse the token and check if it is expired
+   const parsedToken = JSON.parse(atob(token.split(".")[1]));
+   return parsedToken.exp > Date.now() / 1000;
 }
 
 export default withAuth
